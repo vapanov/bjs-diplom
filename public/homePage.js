@@ -5,7 +5,7 @@
 const newLogoutButton = new LogoutButton();
 
 newLogoutButton.action = () => ApiConnector.logout((response) => {
-   if (response.success == false) { // а бывает и фолс?
+   if (response.success == false) {
       alert(response.error);
       return;
    }
@@ -17,7 +17,6 @@ newLogoutButton.action = () => ApiConnector.logout((response) => {
 // если ответ успешный, то вызываем отображение данных профиля (ProfileWidget.showProfile) в который передаём данные ответа от сервера.
 ApiConnector.current((response) => {
    if (response.success == false) {
-      // выбросить на страницу входа?
       return;
    }
    ProfileWidget.showProfile(response.data);
@@ -88,7 +87,6 @@ const newFavoritesWidget = new FavoritesWidget();
 // Запрос начального списока избранного:
 ApiConnector.getFavorites((response) => {
    if (response.success == false) {
-      // выбросить на страницу входа?
       return;
    }
    newFavoritesWidget.clearTable(); // При успешном запросе очищаем текущий список избранного (clearTable).
