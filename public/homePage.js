@@ -106,7 +106,7 @@ newFavoritesWidget.addUserCallback = ((data) => {
          newMoneyManager.updateUsersList(response.data);
          message = `Пользователь ${data.name} добавлен в избранные`;
       }
-      newMoneyManager.setMessage(response.success, message);
+      newFavoritesWidget.setMessage(response.success, message);
    }));
 });
 
@@ -120,6 +120,6 @@ newFavoritesWidget.removeUserCallback = ((data) => {
          newMoneyManager.updateUsersList(response.data);
          message = `Пользователь ${data} удалён из избранных`;
       }
-      newMoneyManager.setMessage(response.success, message);
+      newFavoritesWidget.setMessage(response.success, message);
    }));
 });

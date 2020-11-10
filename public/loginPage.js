@@ -4,18 +4,19 @@ const newUser = new UserForm();
 
 newUser.loginFormCallback = (data) => ApiConnector.login(data, (response) => {
    if (response.success == false) {
-      alert(response.error);
+      newUser.setLoginErrorMessage(response.error);
       return;
    }
    location.reload();
 });
 
-// регистрация отрабатывает с уже готовыми учётными данными? ведь по уму должна быть другая проверка - на наличие такого пользователя и на сложность пароля?
 
-newUser.registerFormCallback = (data) => ApiConnector.login(data, (response) => {
+newUser.registerFormCallback = (data) => ApiConnector.register(data, (response) => {
    if (response.success == false) {
-      alert(response.error);
+      newUser.setRegisterErrorMessage(response.error);
       return;
    }
    location.reload();
 });
+
+// теперь новый пользователь регистрируется и входит, но сразу после этого валятся ошибки в другой странице (
